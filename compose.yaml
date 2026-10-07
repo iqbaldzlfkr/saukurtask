@@ -1,0 +1,53 @@
+services:
+  app:
+    build: .
+    container_name: taskmanager_app
+    ports:
+      - "${APP_PORT:-8080}:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - DB_HOST=${DB_HOST:-db}
+      - DB_PORT=${DB_PORT:-3306}
+      - DB_NAME=${DB_NAME:-taskmanager}
+      - DB_USER=${DB_USER:-taskmanager}
+      - DB_PASS=${DB_PASS:-taskmanager_secret}
+      - APP_ENV=${APP_ENV:-development}
+      - APP_DEBUG=${APP_DEBUG:-false}
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - taskmanager_network
+    restart: unless-stopped
+
+  db:
+    image: mysql:8.0
+    container_name: taskmanager_db
+    ports:
+      - "${DB_EXTERNAL_PORT:-3307}:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root_secret}
+      MYSQL_DATABASE: ${DB_NAME:-taskmanager}
+      MYSQL_USER: ${DB_USER:-taskmanager}
+      MYSQL_PASSWORD: ${DB_PASS:-taskmanager_secret}
+    volumes:
+      - taskmanager_db_data:/var/lib/mysql
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+      - ./database/seed.sql:/docker-entrypoint-initdb.d/02-seed.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-root_secret}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    networks:
+      - taskmanager_network
+    restart: unless-stopped
+
+volumes:
+  taskmanager_db_data:
+
+networks:
+  taskmanager_network:
+    driver: bridge
