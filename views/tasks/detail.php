@@ -1,26 +1,16 @@
 <?php
 /**
  * Task detail page
- * Variables: $task (includes project_name, assignee_name, project_start, project_target)
+ *
+ * @var array<string, mixed> $task
  */
-$pageTitle = htmlspecialchars($task['title'], ENT_QUOTES, 'UTF-8') . ' — Task';
+$task      = $task ?? [];
+$pageTitle = htmlspecialchars($task['title'] ?? 'Task', ENT_QUOTES, 'UTF-8') . ' — Task';
 require __DIR__ . '/../layouts/base.php';
 
-function e(string $val): string {
-    return htmlspecialchars($val, ENT_QUOTES, 'UTF-8');
-}
-function statusBadge(string $s): string {
-    $map = ['To Do'=>'todo','In Progress'=>'inprogress','Done'=>'done'];
-    return '<span class="badge badge-' . ($map[$s]??'todo') . '">' . e($s) . '</span>';
-}
-function priorityBadge(string $p): string {
-    $map = ['Low'=>'low','Medium'=>'medium','High'=>'high'];
-    return '<span class="badge badge-' . ($map[$p]??'low') . '">' . e($p) . '</span>';
-}
-
 $isAdmin   = \App\Core\Auth::isAdmin();
-$isMine    = (\App\Core\Auth::id() === (int) $task['assignee_id']);
-$isOverdue = ($task['status'] !== 'Done' && strtotime($task['due_date']) < strtotime('today'));
+$isMine    = (\App\Core\Auth::id() === (int) ($task['assignee_id'] ?? 0));
+$isOverdue = (!empty($task['status']) && $task['status'] !== 'Done' && !empty($task['due_date']) && strtotime($task['due_date']) < strtotime('today'));
 $success   = \App\Core\Session::getFlash('success');
 $error     = \App\Core\Session::getFlash('error');
 ?>

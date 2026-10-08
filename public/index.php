@@ -20,6 +20,9 @@ define('APP_ROOT', dirname(__DIR__));
 require_once APP_ROOT . '/app/Core/Session.php';
 \App\Core\Session::start();
 
+// Load view helpers
+require_once APP_ROOT . '/app/Core/helpers.php';
+
 // Load Composer autoloader
 require_once APP_ROOT . '/vendor/autoload.php';
 

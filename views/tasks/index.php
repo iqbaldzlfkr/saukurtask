@@ -1,27 +1,26 @@
 <?php
 /**
  * Tasks list with search, filter, sort, pagination
- * Variables: $result, $filters, $projects, $success, $error
+ *
+ * @var array<string, mixed> $result
+ * @var array<string, string> $filters
+ * @var array<int, array<string, mixed>> $projects
+ * @var string|null $success
+ * @var string|null $error
  */
+$result   = $result ?? ['tasks' => [], 'total' => 0, 'pages' => 1, 'page' => 1];
+$filters  = $filters ?? [];
+$projects = $projects ?? [];
+$success  = $success ?? null;
+$error    = $error ?? null;
+
 $pageTitle = 'Tasks';
 require __DIR__ . '/../layouts/base.php';
 
-function e(string $val): string {
-    return htmlspecialchars($val, ENT_QUOTES, 'UTF-8');
-}
-function statusBadge(string $s): string {
-    $map = ['To Do'=>'todo','In Progress'=>'inprogress','Done'=>'done'];
-    return '<span class="badge badge-' . ($map[$s]??'todo') . '">' . e($s) . '</span>';
-}
-function priorityBadge(string $p): string {
-    $map = ['Low'=>'low','Medium'=>'medium','High'=>'high'];
-    return '<span class="badge badge-' . ($map[$p]??'low') . '">' . e($p) . '</span>';
-}
-
-$tasks       = $result['tasks'];
-$total       = $result['total'];
-$pages       = $result['pages'];
-$currentPage = $result['page'];
+$tasks       = $result['tasks'] ?? [];
+$total       = $result['total'] ?? 0;
+$pages       = $result['pages'] ?? 1;
+$currentPage = $result['page'] ?? 1;
 $isAdmin     = \App\Core\Auth::isAdmin();
 ?>
 

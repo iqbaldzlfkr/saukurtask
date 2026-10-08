@@ -1,22 +1,19 @@
 <?php
 /**
  * Create task form — Admin only
- * Variables: $projects, $members, $errors, $old
+ *
+ * @var array<int, array<string, mixed>> $projects
+ * @var array<int, array<string, mixed>> $members
+ * @var array<string, string> $errors
+ * @var array<string, mixed> $old
  */
+$projects = $projects ?? [];
+$members  = $members ?? [];
+$errors   = $errors ?? [];
+$old      = $old ?? [];
+
 $pageTitle = 'Create Task';
 require __DIR__ . '/../layouts/base.php';
-
-function e(string $val): string {
-    return htmlspecialchars($val, ENT_QUOTES, 'UTF-8');
-}
-function fieldError(array $errors, string $field): string {
-    return isset($errors[$field])
-        ? '<span class="field-error" role="alert">' . e($errors[$field]) . '</span>'
-        : '';
-}
-function old(array $old, string $field, string $default = ''): string {
-    return e($old[$field] ?? $default);
-}
 ?>
 
 <div class="page-header">

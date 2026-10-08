@@ -1,29 +1,19 @@
 <?php
 /**
  * Admin Dashboard
- * Variables: $activeProjectCount, $taskStats
- * $taskStats = ['by_status' => [...], 'overdue' => int, 'nearest' => [...]]
+ *
+ * @var int $activeProjectCount
+ * @var array<string, mixed> $taskStats
  */
+$activeProjectCount = $activeProjectCount ?? 0;
+$taskStats          = $taskStats ?? ['by_status' => [], 'overdue' => 0, 'nearest' => []];
+
 $pageTitle = 'Dashboard';
 require __DIR__ . '/../layouts/base.php';
 
-$byStatus = $taskStats['by_status'];
-$overdue  = $taskStats['overdue'];
-$nearest  = $taskStats['nearest'];
-
-function e(string $val): string {
-    return htmlspecialchars($val, ENT_QUOTES, 'UTF-8');
-}
-function statusBadge(string $status): string {
-    $map = ['To Do'=>'todo','In Progress'=>'inprogress','Done'=>'done'];
-    $cls = $map[$status] ?? 'todo';
-    return '<span class="badge badge-' . $cls . '">' . e($status) . '</span>';
-}
-function priorityBadge(string $p): string {
-    $map = ['Low'=>'low','Medium'=>'medium','High'=>'high'];
-    $cls = $map[$p] ?? 'low';
-    return '<span class="badge badge-' . $cls . '">' . e($p) . '</span>';
-}
+$byStatus = $taskStats['by_status'] ?? [];
+$overdue  = $taskStats['overdue'] ?? 0;
+$nearest  = $taskStats['nearest'] ?? [];
 ?>
 
 <!-- Stats row -->

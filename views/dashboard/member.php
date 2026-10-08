@@ -1,25 +1,17 @@
 <?php
 /**
  * Member Dashboard — only shows data for the logged-in member.
+ *
+ * @var array<string, mixed> $taskStats
  */
+$taskStats = $taskStats ?? ['by_status' => [], 'overdue' => 0, 'nearest' => []];
+
 $pageTitle = 'My Dashboard';
 require __DIR__ . '/../layouts/base.php';
 
-$byStatus = $taskStats['by_status'];
-$overdue  = $taskStats['overdue'];
-$nearest  = $taskStats['nearest'];
-
-function e(string $val): string {
-    return htmlspecialchars($val, ENT_QUOTES, 'UTF-8');
-}
-function statusBadge(string $s): string {
-    $map = ['To Do'=>'todo','In Progress'=>'inprogress','Done'=>'done'];
-    return '<span class="badge badge-' . ($map[$s]??'todo') . '">' . e($s) . '</span>';
-}
-function priorityBadge(string $p): string {
-    $map = ['Low'=>'low','Medium'=>'medium','High'=>'high'];
-    return '<span class="badge badge-' . ($map[$p]??'low') . '">' . e($p) . '</span>';
-}
+$byStatus = $taskStats['by_status'] ?? [];
+$overdue  = $taskStats['overdue'] ?? 0;
+$nearest  = $taskStats['nearest'] ?? [];
 ?>
 
 <div class="alert alert-info" style="margin-bottom:24px;">

@@ -10,6 +10,8 @@
 use App\Core\Auth;
 use App\Core\Session;
 
+require_once __DIR__ . '/../../app/Core/helpers.php';
+
 $user      = Auth::user();
 $initials  = strtoupper(substr($user['name'] ?? 'U', 0, 1));
 $pageTitle = $pageTitle ?? 'Dashboard';

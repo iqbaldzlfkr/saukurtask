@@ -1,18 +1,22 @@
 <?php
 /**
  * Projects list
- * Variables: $projects, $search, $status, $success, $error
+ *
+ * @var array<int, array<string, mixed>> $projects
+ * @var string $search
+ * @var string $status
+ * @var string|null $success
+ * @var string|null $error
  */
+$projects = $projects ?? [];
+$search   = $search ?? '';
+$status   = $status ?? '';
+$success  = $success ?? null;
+$error    = $error ?? null;
+
 $pageTitle = 'Projects';
 require __DIR__ . '/../layouts/base.php';
 
-function e(string $val): string {
-    return htmlspecialchars($val, ENT_QUOTES, 'UTF-8');
-}
-function statusBadge(string $s): string {
-    $map = ['Planning'=>'planning','Active'=>'active','Completed'=>'completed','Archived'=>'archived'];
-    return '<span class="badge badge-' . ($map[$s]??'archived') . '">' . e($s) . '</span>';
-}
 $isAdmin = \App\Core\Auth::isAdmin();
 ?>
 

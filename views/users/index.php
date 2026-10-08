@@ -1,14 +1,19 @@
 <?php
 /**
  * Users list — Admin only
- * Variables: $users, $search, $success, $error
+ *
+ * @var array<int, array<string, mixed>> $users
+ * @var string $search
+ * @var string|null $success
+ * @var string|null $error
  */
+$users   = $users ?? [];
+$search  = $search ?? '';
+$success = $success ?? null;
+$error   = $error ?? null;
+
 $pageTitle = 'User Management';
 require __DIR__ . '/../layouts/base.php';
-
-function e(string $val): string {
-    return htmlspecialchars($val, ENT_QUOTES, 'UTF-8');
-}
 ?>
 
 <?php if ($success): ?>

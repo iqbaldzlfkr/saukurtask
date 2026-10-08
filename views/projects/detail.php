@@ -1,18 +1,13 @@
 <?php
 /**
  * Project detail page
- * Variables: $project
+ *
+ * @var array<string, mixed> $project
  */
-$pageTitle = htmlspecialchars($project['name'], ENT_QUOTES, 'UTF-8') . ' — Project';
+$project   = $project ?? [];
+$pageTitle = htmlspecialchars($project['name'] ?? 'Project', ENT_QUOTES, 'UTF-8') . ' — Project';
 require __DIR__ . '/../layouts/base.php';
 
-function e(string $val): string {
-    return htmlspecialchars($val, ENT_QUOTES, 'UTF-8');
-}
-function statusBadge(string $s): string {
-    $map = ['Planning'=>'planning','Active'=>'active','Completed'=>'completed','Archived'=>'archived'];
-    return '<span class="badge badge-' . ($map[$s]??'archived') . '">' . e($s) . '</span>';
-}
 $isAdmin = \App\Core\Auth::isAdmin();
 ?>
 

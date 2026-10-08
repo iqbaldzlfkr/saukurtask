@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="/var/www/html/phpunit.xml" tests="21" assertions="21" errors="0" failures="0" skipped="0" time="0.014071">
-    <testsuite name="Unit" tests="21" assertions="21" errors="0" failures="0" skipped="0" time="0.014071">
-      <testsuite name="Tests\Unit\OverdueCalculationTest" file="/var/www/html/tests/Unit/OverdueCalculationTest.php" tests="4" assertions="4" errors="0" failures="0" skipped="0" time="0.007355">
-        <testcase name="testPastDueDateWithTodoStatusIsOverdue" file="/var/www/html/tests/Unit/OverdueCalculationTest.php" line="39" class="Tests\Unit\OverdueCalculationTest" classname="Tests.Unit.OverdueCalculationTest" assertions="1" time="0.007016"/>
-        <testcase name="testPastDueDateWithDoneStatusIsNotOverdue" file="/var/www/html/tests/Unit/OverdueCalculationTest.php" line="50" class="Tests\Unit\OverdueCalculationTest" classname="Tests.Unit.OverdueCalculationTest" assertions="1" time="0.000254"/>
-        <testcase name="testFutureDueDateIsNotOverdue" file="/var/www/html/tests/Unit/OverdueCalculationTest.php" line="61" class="Tests\Unit\OverdueCalculationTest" classname="Tests.Unit.OverdueCalculationTest" assertions="1" time="0.000043"/>
-        <testcase name="testInProgressWithPastDueDateIsOverdue" file="/var/www/html/tests/Unit/OverdueCalculationTest.php" line="72" class="Tests\Unit\OverdueCalculationTest" classname="Tests.Unit.OverdueCalculationTest" assertions="1" time="0.000042"/>
+  <testsuite name="/var/www/html/phpunit.xml" tests="21" assertions="21" errors="0" failures="0" skipped="0" time="0.017075">
+    <testsuite name="Unit" tests="21" assertions="21" errors="0" failures="0" skipped="0" time="0.017075">
+      <testsuite name="Tests\Unit\OverdueCalculationTest" file="/var/www/html/tests/Unit/OverdueCalculationTest.php" tests="4" assertions="4" errors="0" failures="0" skipped="0" time="0.006977">
+        <testcase name="testPastDueDateWithTodoStatusIsOverdue" file="/var/www/html/tests/Unit/OverdueCalculationTest.php" line="39" class="Tests\Unit\OverdueCalculationTest" classname="Tests.Unit.OverdueCalculationTest" assertions="1" time="0.006223"/>
+        <testcase name="testPastDueDateWithDoneStatusIsNotOverdue" file="/var/www/html/tests/Unit/OverdueCalculationTest.php" line="50" class="Tests\Unit\OverdueCalculationTest" classname="Tests.Unit.OverdueCalculationTest" assertions="1" time="0.000609"/>
+        <testcase name="testFutureDueDateIsNotOverdue" file="/var/www/html/tests/Unit/OverdueCalculationTest.php" line="61" class="Tests\Unit\OverdueCalculationTest" classname="Tests.Unit.OverdueCalculationTest" assertions="1" time="0.000056"/>
+        <testcase name="testInProgressWithPastDueDateIsOverdue" file="/var/www/html/tests/Unit/OverdueCalculationTest.php" line="72" class="Tests\Unit\OverdueCalculationTest" classname="Tests.Unit.OverdueCalculationTest" assertions="1" time="0.000089"/>
       </testsuite>
-      <testsuite name="Tests\Unit\ProjectValidatorTest" file="/var/www/html/tests/Unit/ProjectValidatorTest.php" tests="5" assertions="5" errors="0" failures="0" skipped="0" time="0.003866">
-        <testcase name="testValidProjectPassesValidation" file="/var/www/html/tests/Unit/ProjectValidatorTest.php" line="16" class="Tests\Unit\ProjectValidatorTest" classname="Tests.Unit.ProjectValidatorTest" assertions="1" time="0.001050"/>
-        <testcase name="testTargetDateBeforeStartDateFails" file="/var/www/html/tests/Unit/ProjectValidatorTest.php" line="31" class="Tests\Unit\ProjectValidatorTest" classname="Tests.Unit.ProjectValidatorTest" assertions="1" time="0.000557"/>
-        <testcase name="testSameDateIsValid" file="/var/www/html/tests/Unit/ProjectValidatorTest.php" line="50" class="Tests\Unit\ProjectValidatorTest" classname="Tests.Unit.ProjectValidatorTest" assertions="1" time="0.002170"/>
-        <testcase name="testInvalidStatusIsRejected" file="/var/www/html/tests/Unit/ProjectValidatorTest.php" line="69" class="Tests\Unit\ProjectValidatorTest" classname="Tests.Unit.ProjectValidatorTest" assertions="1" time="0.000053"/>
-        <testcase name="testMissingNameIsRejected" file="/var/www/html/tests/Unit/ProjectValidatorTest.php" line="88" class="Tests\Unit\ProjectValidatorTest" classname="Tests.Unit.ProjectValidatorTest" assertions="1" time="0.000038"/>
+      <testsuite name="Tests\Unit\ProjectValidatorTest" file="/var/www/html/tests/Unit/ProjectValidatorTest.php" tests="5" assertions="5" errors="0" failures="0" skipped="0" time="0.006623">
+        <testcase name="testValidProjectPassesValidation" file="/var/www/html/tests/Unit/ProjectValidatorTest.php" line="16" class="Tests\Unit\ProjectValidatorTest" classname="Tests.Unit.ProjectValidatorTest" assertions="1" time="0.002214"/>
+        <testcase name="testTargetDateBeforeStartDateFails" file="/var/www/html/tests/Unit/ProjectValidatorTest.php" line="31" class="Tests\Unit\ProjectValidatorTest" classname="Tests.Unit.ProjectValidatorTest" assertions="1" time="0.001040"/>
+        <testcase name="testSameDateIsValid" file="/var/www/html/tests/Unit/ProjectValidatorTest.php" line="50" class="Tests\Unit\ProjectValidatorTest" classname="Tests.Unit.ProjectValidatorTest" assertions="1" time="0.003236"/>
+        <testcase name="testInvalidStatusIsRejected" file="/var/www/html/tests/Unit/ProjectValidatorTest.php" line="69" class="Tests\Unit\ProjectValidatorTest" classname="Tests.Unit.ProjectValidatorTest" assertions="1" time="0.000051"/>
+        <testcase name="testMissingNameIsRejected" file="/var/www/html/tests/Unit/ProjectValidatorTest.php" line="88" class="Tests\Unit\ProjectValidatorTest" classname="Tests.Unit.ProjectValidatorTest" assertions="1" time="0.000083"/>
       </testsuite>
-      <testsuite name="Tests\Unit\TaskValidatorTest" file="/var/www/html/tests/Unit/TaskValidatorTest.php" tests="7" assertions="7" errors="0" failures="0" skipped="0" time="0.001009">
-        <testcase name="testInvalidStatusCancelledIsRejected" file="/var/www/html/tests/Unit/TaskValidatorTest.php" line="26" class="Tests\Unit\TaskValidatorTest" classname="Tests.Unit.TaskValidatorTest" assertions="1" time="0.000661"/>
-        <testcase name="testInvalidPriorityUrgentIsRejected" file="/var/www/html/tests/Unit/TaskValidatorTest.php" line="47" class="Tests\Unit\TaskValidatorTest" classname="Tests.Unit.TaskValidatorTest" assertions="1" time="0.000097"/>
-        <testcase name="testDueDateBeforeProjectStartIsRejected" file="/var/www/html/tests/Unit/TaskValidatorTest.php" line="68" class="Tests\Unit\TaskValidatorTest" classname="Tests.Unit.TaskValidatorTest" assertions="1" time="0.000063"/>
-        <testcase name="testDueDateAfterProjectTargetIsRejected" file="/var/www/html/tests/Unit/TaskValidatorTest.php" line="89" class="Tests\Unit\TaskValidatorTest" classname="Tests.Unit.TaskValidatorTest" assertions="1" time="0.000068"/>
-        <testcase name="testValidTaskPassesValidation" file="/var/www/html/tests/Unit/TaskValidatorTest.php" line="110" class="Tests\Unit\TaskValidatorTest" classname="Tests.Unit.TaskValidatorTest" assertions="1" time="0.000042"/>
-        <testcase name="testValidStatusUpdatePasses" file="/var/www/html/tests/Unit/TaskValidatorTest.php" line="127" class="Tests\Unit\TaskValidatorTest" classname="Tests.Unit.TaskValidatorTest" assertions="1" time="0.000040"/>
-        <testcase name="testInvalidStatusUpdateFails" file="/var/www/html/tests/Unit/TaskValidatorTest.php" line="134" class="Tests\Unit\TaskValidatorTest" classname="Tests.Unit.TaskValidatorTest" assertions="1" time="0.000038"/>
+      <testsuite name="Tests\Unit\TaskValidatorTest" file="/var/www/html/tests/Unit/TaskValidatorTest.php" tests="7" assertions="7" errors="0" failures="0" skipped="0" time="0.002115">
+        <testcase name="testInvalidStatusCancelledIsRejected" file="/var/www/html/tests/Unit/TaskValidatorTest.php" line="26" class="Tests\Unit\TaskValidatorTest" classname="Tests.Unit.TaskValidatorTest" assertions="1" time="0.001403"/>
+        <testcase name="testInvalidPriorityUrgentIsRejected" file="/var/www/html/tests/Unit/TaskValidatorTest.php" line="47" class="Tests\Unit\TaskValidatorTest" classname="Tests.Unit.TaskValidatorTest" assertions="1" time="0.000185"/>
+        <testcase name="testDueDateBeforeProjectStartIsRejected" file="/var/www/html/tests/Unit/TaskValidatorTest.php" line="68" class="Tests\Unit\TaskValidatorTest" classname="Tests.Unit.TaskValidatorTest" assertions="1" time="0.000060"/>
+        <testcase name="testDueDateAfterProjectTargetIsRejected" file="/var/www/html/tests/Unit/TaskValidatorTest.php" line="89" class="Tests\Unit\TaskValidatorTest" classname="Tests.Unit.TaskValidatorTest" assertions="1" time="0.000253"/>
+        <testcase name="testValidTaskPassesValidation" file="/var/www/html/tests/Unit/TaskValidatorTest.php" line="110" class="Tests\Unit\TaskValidatorTest" classname="Tests.Unit.TaskValidatorTest" assertions="1" time="0.000131"/>
+        <testcase name="testValidStatusUpdatePasses" file="/var/www/html/tests/Unit/TaskValidatorTest.php" line="127" class="Tests\Unit\TaskValidatorTest" classname="Tests.Unit.TaskValidatorTest" assertions="1" time="0.000043"/>
+        <testcase name="testInvalidStatusUpdateFails" file="/var/www/html/tests/Unit/TaskValidatorTest.php" line="134" class="Tests\Unit\TaskValidatorTest" classname="Tests.Unit.TaskValidatorTest" assertions="1" time="0.000040"/>
       </testsuite>
-      <testsuite name="Tests\Unit\UserValidatorTest" file="/var/www/html/tests/Unit/UserValidatorTest.php" tests="5" assertions="5" errors="0" failures="0" skipped="0" time="0.001840">
-        <testcase name="testInvalidEmailFormatIsRejected" file="/var/www/html/tests/Unit/UserValidatorTest.php" line="16" class="Tests\Unit\UserValidatorTest" classname="Tests.Unit.UserValidatorTest" assertions="1" time="0.001418"/>
-        <testcase name="testDuplicateEmailIsRejected" file="/var/www/html/tests/Unit/UserValidatorTest.php" line="35" class="Tests\Unit\UserValidatorTest" classname="Tests.Unit.UserValidatorTest" assertions="1" time="0.000067"/>
-        <testcase name="testInvalidRoleIsRejected" file="/var/www/html/tests/Unit/UserValidatorTest.php" line="55" class="Tests\Unit\UserValidatorTest" classname="Tests.Unit.UserValidatorTest" assertions="1" time="0.000041"/>
-        <testcase name="testShortPasswordIsRejected" file="/var/www/html/tests/Unit/UserValidatorTest.php" line="74" class="Tests\Unit\UserValidatorTest" classname="Tests.Unit.UserValidatorTest" assertions="1" time="0.000106"/>
-        <testcase name="testValidUserPassesValidation" file="/var/www/html/tests/Unit/UserValidatorTest.php" line="93" class="Tests\Unit\UserValidatorTest" classname="Tests.Unit.UserValidatorTest" assertions="1" time="0.000208"/>
+      <testsuite name="Tests\Unit\UserValidatorTest" file="/var/www/html/tests/Unit/UserValidatorTest.php" tests="5" assertions="5" errors="0" failures="0" skipped="0" time="0.001360">
+        <testcase name="testInvalidEmailFormatIsRejected" file="/var/www/html/tests/Unit/UserValidatorTest.php" line="16" class="Tests\Unit\UserValidatorTest" classname="Tests.Unit.UserValidatorTest" assertions="1" time="0.001007"/>
+        <testcase name="testDuplicateEmailIsRejected" file="/var/www/html/tests/Unit/UserValidatorTest.php" line="35" class="Tests\Unit\UserValidatorTest" classname="Tests.Unit.UserValidatorTest" assertions="1" time="0.000042"/>
+        <testcase name="testInvalidRoleIsRejected" file="/var/www/html/tests/Unit/UserValidatorTest.php" line="55" class="Tests\Unit\UserValidatorTest" classname="Tests.Unit.UserValidatorTest" assertions="1" time="0.000044"/>
+        <testcase name="testShortPasswordIsRejected" file="/var/www/html/tests/Unit/UserValidatorTest.php" line="74" class="Tests\Unit\UserValidatorTest" classname="Tests.Unit.UserValidatorTest" assertions="1" time="0.000052"/>
+        <testcase name="testValidUserPassesValidation" file="/var/www/html/tests/Unit/UserValidatorTest.php" line="93" class="Tests\Unit\UserValidatorTest" classname="Tests.Unit.UserValidatorTest" assertions="1" time="0.000215"/>
       </testsuite>
     </testsuite>
   </testsuite>
