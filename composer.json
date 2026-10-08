@@ -22,6 +22,6 @@
         "optimize-autoloader": true
     },
     "scripts": {
-        "test": "phpunit --testdox"
+        "test": "phpunit --testdox --log-junit tests/phpunit-report.xml"
     }
 }
